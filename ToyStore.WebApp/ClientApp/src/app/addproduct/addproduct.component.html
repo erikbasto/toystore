@@ -1,0 +1,61 @@
+﻿<h3>{{title}} - Product</h3>
+<hr />
+<form [formGroup]="productForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+
+    <div class="form-group row">
+        <label class=" control-label col-md-12">Name</label>
+        <div class="col-md-4">
+            <input class="form-control" type="text" formControlName="name">
+        </div>
+        <span class="text-danger" *ngIf="name.invalid && formDir.submitted">
+            Name is required.
+        </span>
+    </div>
+
+    <div class="form-group row">
+        <label class=" control-label col-md-12">Price</label>
+        <div class="col-md-4">
+            <input class="form-control" type="text" formControlName="price">
+        </div>
+        <span class="text-danger" *ngIf="price.invalid && formDir.submitted">
+            Price is required.
+        </span>
+    </div>
+
+    <div class="form-group row">
+        <label class=" control-label col-md-12">Company</label>
+        <div class="col-md-4">
+            <input class="form-control" type="text" formControlName="company">
+        </div>
+        <span class="text-danger" *ngIf="company.invalid && formDir.submitted">
+            Company is required.
+        </span>
+    </div>
+
+
+    <div class="form-group row">
+        <label class=" control-label col-md-12">Age</label>
+        <div class="col-md-4">
+            <input class="form-control" type="text" formControlName="age">
+        </div>
+        <span class="text-danger" *ngIf="age.invalid && formDir.submitted">
+            Age should be between 0 and 100.
+        </span>
+    </div>
+
+
+    <div class="form-group row">
+        <label class=" control-label col-md-12">Description</label>
+        <div class="col-md-4">
+            <input class="form-control" type="text" formControlName="description">
+        </div>
+        <span class="text-danger" *ngIf="description.invalid && formDir.submitted">
+            Description has a max lenght of 100.
+        </span>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-default">Save</button>
+        <button class="btn" (click)="cancel()">Cancel</button>
+    </div>
+</form>

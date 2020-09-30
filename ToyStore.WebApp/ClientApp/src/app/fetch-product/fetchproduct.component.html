@@ -1,0 +1,32 @@
+﻿<h1>Product Data</h1>
+<p *ngIf="!prodList"><em>Loading...</em></p>
+
+<p>
+    <a [routerLink]="['/register-product']">Add New+</a>
+</p>
+
+<table class='table' *ngIf="prodList">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Price</th>
+            <th>Company</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let prod of prodList">
+            <td>{{ prod.productId }}</td>
+            <td>{{ prod.name }}</td>
+            <td>{{ prod.age }}</td>
+            <td>{{ prod.price }}</td>
+            <td>{{ prod.company }}</td>
+            <td>
+            <td>
+                <a [routerLink]="['/product/edit/', prod.productId]">Update</a> |
+                <a [routerLink]="" (click)="delete(prod.productId)">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
